@@ -31,6 +31,7 @@
       "text": "Hi, maybe I`ll be free after work today. I`ll call you",
       "textColor": "black",
       "nameColor": "black"
+
     },
     {
       "id": "5",
@@ -61,14 +62,6 @@
       "name": "Hayk",
       "date": "21/03/2020",
       "text": "So, what is up with that job?",
-      "textColor": "black",
-      "nameColor": "black"
-    },
-    {
-      "id": "9",
-      "name": "Karen",
-      "date": "13/07/2021",
-      "text": "Have you ever thought about living in another country?",
       "textColor": "black",
       "nameColor": "black"
     }
