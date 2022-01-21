@@ -1,6 +1,20 @@
 import React from "react";
+import {useEffect, useState} from "react";
 
 function Messages() {
+
+
+    const [allMessages, setUserMessages] = useState();
+
+    useEffect(() => {
+        fetch('../../generated.json')
+            .then(res => res.json())
+            .then(res => {
+                setUserMessages(res);
+            });
+    }, []);
+
+    console.log(allMessages);
 
     return (
         <>

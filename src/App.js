@@ -11,15 +11,17 @@ import Footer from "./components/Footer";
 
 
 function App() {
+
+
     return (
         <>
             <Header/>
 
 
-                <Routes>
-                        <Route path="/" element={<Messages/>}/>
-                        <Route path="/messages-configs" element={<MessagesConfigs/>}/>
-                </Routes>
+            <Routes>
+                <Route path="/" element={<Messages/>}/>
+                <Route path="/messages-configs" element={<MessagesConfigs/>}/>
+            </Routes>
 
             <Footer/>
 

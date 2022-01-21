@@ -1,7 +1,7 @@
 {
   "messages": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Alex",
       "date": "17/05/2021",
       "text": "Hello Hayk",
@@ -9,7 +9,7 @@
       "nameColor": "black"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Hayk",
       "date": "21/03/2020",
       "text": "I`ll be late today",
@@ -17,7 +17,7 @@
       "nameColor": "black"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Karen",
       "date": "13/09/2021",
       "text": "Hey man, when can you come to hang over? I`ll be free today",
@@ -25,7 +25,7 @@
       "nameColor": "black"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Alex",
       "date": "13/09/2021",
       "text": "Hi, maybe I`ll be free after work today. I`ll call you",
@@ -33,7 +33,7 @@
       "nameColor": "black"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Hayk",
       "date": "21/03/2020",
       "text": "Yesterday I did great job with my application, you can check it out on my page",
@@ -41,7 +41,7 @@
       "nameColor": "black"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Karen",
       "date": "1/01/2022",
       "text": "Merry Christmas and a happy New Year",
@@ -49,7 +49,7 @@
       "nameColor": "black"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Alex",
       "date": "17/05/2021",
       "text": "My car is in service center now, I can`t visit you",
@@ -57,7 +57,7 @@
       "nameColor": "black"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Hayk",
       "date": "21/03/2020",
       "text": "So, what is up with that job?",
@@ -65,7 +65,7 @@
       "nameColor": "black"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Karen",
       "date": "13/07/2021",
       "text": "Have you ever thought about living in another country?",
