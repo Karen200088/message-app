@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+li a{
+  text-decoration: none;
+}
+li{
+  list-style-type: none;
+  display: inline;
+  padding: 10px;
+  margin-left: 10px;
+  background-color: aquamarine;
+  border-radius: 10px;
+}
