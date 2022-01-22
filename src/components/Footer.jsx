@@ -4,10 +4,8 @@ function Footer() {
 
 
 
-        <div className="container-fluid mt-5">
-            <div className="row">
 
-                <footer className="bg-dark text-center text-white pt-3 border-top border-white ">
+                <footer className="bg-dark text-center text-white pt-3 border-top border-white fixed-bottom">
 
 
                     <section className="">
@@ -108,9 +106,6 @@ function Footer() {
                         © 2021 Copyright
                     </div>
                 </footer>
-
-            </div>
-        </div>
 
 
     )

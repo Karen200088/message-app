@@ -16,15 +16,16 @@ function Messages() {
 
 
     return (
+
         <>
-            <div className="container-fluid mt-5">
-                <div className="user-message-cards">
+            <div className="messages-block">
+                <div className="container-fluid">
                     <div className="row">
 
                         {
                             allMessages.map(item => {
                                 return (
-                                    <div className="card text-center bg-dark text-light col-5 mt-3 m-auto">
+                                    <div key={item.id} className="card text-center bg-dark text-light col-5 mt-3 m-auto">
                                         <div className="card-header"> {item.date} </div>
                                         <div className="card-body">
                                             <h5 className="card-title">{item.name}</h5>
