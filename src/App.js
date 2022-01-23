@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
     Routes,
     Route,
@@ -13,14 +13,25 @@ import Footer from "./components/Footer";
 function App() {
 
 
+    const [selectedColor , setSelectedColor] = useState('');
+    const [selectedWhatColor , setSelectedWhatColor] = useState('');
+
+
     return (
         <>
             <Header/>
 
 
             <Routes>
-                <Route path="/" element={<Messages/>}/>
-                <Route path="/messages-configs" element={<MessagesConfigs/>}/>
+
+                <Route path="/" element={
+                    <Messages selectedColor={selectedColor} selectedColor={selectedColor} selectedWhatColor={selectedWhatColor}/>
+                }/>
+
+                <Route path="/messages-configs" element={
+                    <MessagesConfigs setSelectedColor={setSelectedColor} setSelectedWhatColor={setSelectedWhatColor}/>
+                }/>
+
             </Routes>
 
             <Footer/>

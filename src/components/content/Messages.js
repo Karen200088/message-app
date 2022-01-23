@@ -1,7 +1,7 @@
 import React from "react";
 import {useEffect, useState} from "react";
 
-function Messages() {
+function Messages({selectedColor, selectedWhatColor}) {
 
 
     const [allMessages, setUserMessages] = useState([]);
@@ -14,6 +14,8 @@ function Messages() {
             });
     }, []);
 
+    console.log(selectedColor)
+    console.log(selectedWhatColor)
 
     return (
 
@@ -25,11 +27,16 @@ function Messages() {
                         {
                             allMessages.map(item => {
                                 return (
-                                    <div key={item.id} className="card text-center bg-dark text-light col-5 mt-3 m-auto">
-                                        <div className="card-header"> {item.date} </div>
+                                    <div key={item.id} className="card text-center bg-dark col-5 mt-3 m-auto">
+                                        <div className="card-header" style={{color : "white"}}> {item.date} </div>
                                         <div className="card-body">
-                                            <h5 className="card-title">{item.name}</h5>
-                                            <p className="card-text"> {item.text} </p>
+
+                                         <h4 className="card-title"  style={{color:selectedWhatColor === 'name' ? selectedColor : item.color}}>{item.name}</h4>}
+
+                                            <p className="card-text"
+                                               style={{color:selectedWhatColor === 'text' ? selectedColor : item.color}}
+                                            > {item.text} </p>
+
                                         </div>
                                     </div>
                                 )
