@@ -13,7 +13,7 @@ function MessagesConfigs( { setSelectedColor , setSelectedWhatColor } ) {
                     <div className="col-4 m-auto ">
                          <h5>Color</h5>
                         <select
-                            value={selectedColor}
+                            // value={selectedColor}
                                 onChange={(e)=>setSelectedColor(e.target.value)}
                                 className="form-select form-select-lg"
                                 aria-label="Default select example"
@@ -29,7 +29,7 @@ function MessagesConfigs( { setSelectedColor , setSelectedWhatColor } ) {
                     <div className="col-4 m-auto">
                         <h5>Choose which color to change?</h5>
                         <select
-                            value={selectedWhatColor}
+                            // value={selectedWhatColor}
                             onChange={(e)=>setSelectedWhatColor(e.target.value)}
                             className="form-select form-select-lg"
                             aria-label="Default select example"
