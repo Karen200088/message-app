@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {
     Routes,
     Route,
@@ -13,9 +13,17 @@ import Footer from "./components/Footer";
 function App() {
 
 
-    const [selectedColor , setSelectedColor] = useState('');
-    const [selectedWhatColor , setSelectedWhatColor] = useState('');
+    const [selectedColor, setSelectedColor] = useState('');
+    const [selectedWhatColor, setSelectedWhatColor] = useState('');
+    const [allMessages, setUserMessages] = useState([]);
 
+    useEffect(() => {
+        fetch('/generated.json')
+            .then(res => res.json())
+            .then(res => {
+                setUserMessages(res.messages);
+            });
+    }, [])
 
     return (
         <>
@@ -25,7 +33,8 @@ function App() {
             <Routes>
 
                 <Route path="/" element={
-                    <Messages selectedColor={selectedColor} selectedColor={selectedColor} selectedWhatColor={selectedWhatColor}/>
+                    <Messages allMessages={allMessages} selectedColor={selectedColor}
+                              selectedWhatColor={selectedWhatColor}/>
                 }/>
 
                 <Route path="/messages-configs" element={

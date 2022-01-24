@@ -1,6 +1,6 @@
 import React from "react";
 
-function MessagesConfigs( { setSelectedColor , setSelectedWhatColor } ) {
+function MessagesConfigs({setSelectedColor, setSelectedWhatColor}) {
 
 
     return (
@@ -11,12 +11,12 @@ function MessagesConfigs( { setSelectedColor , setSelectedWhatColor } ) {
                 <div className="row mt-4">
 
                     <div className="col-4 m-auto ">
-                         <h5>Color</h5>
+                        <h5>Color</h5>
                         <select
                             // value={selectedColor}
-                                onChange={(e)=>setSelectedColor(e.target.value)}
-                                className="form-select form-select-lg"
-                                aria-label="Default select example"
+                            onChange={(e) => setSelectedColor(e.target.value)}
+                            className="form-select form-select-lg"
+                            aria-label="Default select example"
                         >
 
                             <option selected disabled>Choose</option>
@@ -30,7 +30,7 @@ function MessagesConfigs( { setSelectedColor , setSelectedWhatColor } ) {
                         <h5>Choose which color to change?</h5>
                         <select
                             // value={selectedWhatColor}
-                            onChange={(e)=>setSelectedWhatColor(e.target.value)}
+                            onChange={(e) => setSelectedWhatColor(e.target.value)}
                             className="form-select form-select-lg"
                             aria-label="Default select example"
                         >
