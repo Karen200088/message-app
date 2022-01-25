@@ -1,54 +1,39 @@
-import React, {useEffect, useState} from "react";
-import {
-    Routes,
-    Route,
-} from "react-router-dom";
-
 import Header from "./components/Header";
-import Messages from "./components/content/Messages";
-import MessagesConfigs from "./components/content/MessagesConfigs";
-import Footer from "./components/Footer";
+import {Route, Routes, useNavigate} from "react-router-dom";
+import Messages from "./components/Messages";
+import Configs from "./components/Configs";
+import {useCallback, useState} from "react";
+import PopupWrapper from "./components/PopupWrapper";
+import PopupMessage from "./components/PopupMessage";
 
+const App = () => {
+    const [configs, setConfigs] = useState({})
 
-function App() {
+    const navigate = useNavigate()
 
-
-    const [selectedColor, setSelectedColor] = useState('');
-    const [selectedWhatColor, setSelectedWhatColor] = useState('');
-    const [allMessages, setUserMessages] = useState([]);
-
-    useEffect(() => {
-        fetch('/generated.json')
-            .then(res => res.json())
-            .then(res => {
-                setUserMessages(res.messages);
-            });
+    const handleConfigs = useCallback((configsObj) => {
+        setConfigs(configsObj)
     }, [])
+
+    const goBack = () => {
+        setTimeout(() => {
+            navigate('..')
+        }, 200)
+    }
 
     return (
         <>
             <Header/>
-
-
             <Routes>
-
-                <Route path="/" element={
-                    <Messages allMessages={allMessages} selectedColor={selectedColor}
-                              selectedWhatColor={selectedWhatColor}/>
-                }/>
-
-                <Route path="/messages-configs" element={
-                    <MessagesConfigs setSelectedColor={setSelectedColor} setSelectedWhatColor={setSelectedWhatColor}/>
-                }/>
-
+                <Route path='' element={<Messages configs={configs}/>}/>
+                <Route path='configs' element={<Configs handleConfigs={handleConfigs}/>}/>
+                <Route path=':id' element={
+                    <PopupWrapper onClose={goBack}>
+                        <PopupMessage/>
+                    </PopupWrapper>}/>
             </Routes>
-
-            <Footer/>
-
         </>
-    )
-
+    );
 }
-
 
 export default App;
