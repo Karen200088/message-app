@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Header() {
     return (
@@ -17,17 +17,17 @@ function Header() {
                             <ul className="navbar-nav">
 
                                 <li className="nav-item active">
-                                    <Link to="/" className="text-decoration-none nav-link">
+                                    <NavLink to="/" className="text-decoration-none nav-link">
 
                                         Messages
-                                    </Link>
+                                    </NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/messages-configs" className="text-decoration-none nav-link">
+                                    <NavLink to="messages-configs" className="text-decoration-none nav-link">
 
                                         Messages Configs
 
-                                    </Link>
+                                    </NavLink>
                                 </li>
 
                             </ul>
