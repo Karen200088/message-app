@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import {Route, Routes, useNavigate} from "react-router-dom";
 import Messages from "./components/Messages";
 import Configs from "./components/Configs";
-import {useCallback, useState} from "react";
+import React, {useCallback, useState} from "react";
 import PopupWrapper from "./components/PopupWrapper";
 import PopupMessage from "./components/PopupMessage";
 
@@ -18,7 +18,7 @@ const App = () => {
     const goBack = () => {
         setTimeout(() => {
             navigate('..')
-        }, 200)
+        }, 300)
     }
 
     return (
