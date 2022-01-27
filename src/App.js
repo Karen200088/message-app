@@ -22,7 +22,6 @@ const App = () => {
         }, 300)
     }
 
-
     return (
         <>
             <Header/>
