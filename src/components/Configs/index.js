@@ -7,7 +7,7 @@ const Configs = ({handleConfigs}) => {
 
     useEffect(() => {
         handleConfigs({color, target})
-    },[color, target])
+    }, [color, target])
 
     const changeColor = e => {
         setColor(e.target.value)
@@ -19,30 +19,46 @@ const Configs = ({handleConfigs}) => {
 
     return (
         <>
-            <select
-                value={color}
-                onChange={changeColor}
-                name="selectColor"
-                id="selectColor"
-            >
-                {
-                    colors.map(color => (
-                        <option key={color} value={color}>{color}</option>
-                    ))
-                }
-            </select>
-            <select
-                value={target}
-                onChange={changeTarget}
-                name="selectTarget"
-                id="selectTarget"
-            >
-                {
-                    colorTarget.map(item => (
-                        <option key={item.target} value={item.target}>{item.option}</option>
-                    ))
-                }
-            </select>
+            <div className="container-fluid">
+                <div className="row mt-4">
+                    <div className="col-4 m-auto">
+                        <h5>Color</h5>
+                        <select
+                            value={color}
+                            onChange={changeColor}
+                            name="selectColor"
+                            id="selectColor"
+                            className="form-select "
+                            aria-label="Default select example"
+                        >
+                            {
+                                colors.map(color => (
+                                    <option key={color} value={color}>{color}</option>
+                                ))
+                            }
+                        </select>
+                    </div>
+
+                    <div className="col-4 m-auto">
+                        <h5>Target</h5>
+                        <select
+                            value={target}
+                            onChange={changeTarget}
+                            name="selectTarget"
+                            id="selectTarget"
+                            className="form-select col-3 m-auto"
+                            aria-label="Default select example"
+                        >
+                            {
+                                colorTarget.map(item => (
+                                    <option key={item.target} value={item.target}>{item.option}</option>
+                                ))
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+
         </>
     )
 }

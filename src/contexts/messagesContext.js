@@ -6,7 +6,7 @@ const MessagesProvider = ({children}) => {
     const [messages, setMessages] = useState([])
 
     useEffect(() => {
-        fetch('/db.json')
+        fetch('/colors.json')
             .then(res => res.json())
             .then(res => setMessages(res.messages))
             .catch(e => console.log('error from messagesContext', e))

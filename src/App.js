@@ -5,6 +5,7 @@ import Configs from "./components/Configs";
 import React, {useCallback, useState} from "react";
 import PopupWrapper from "./components/PopupWrapper";
 import PopupMessage from "./components/PopupMessage";
+import Login from "./components/Login";
 
 const App = () => {
     const [configs, setConfigs] = useState({})
@@ -21,12 +22,14 @@ const App = () => {
         }, 300)
     }
 
+
     return (
         <>
             <Header/>
             <Routes>
                 <Route path='' element={<Messages configs={configs}/>}/>
                 <Route path='configs' element={<Configs handleConfigs={handleConfigs}/>}/>
+                <Route path='login' element={<Login/>}/>
                 <Route path=':id' element={
                     <PopupWrapper onClose={goBack}>
                         <PopupMessage/>

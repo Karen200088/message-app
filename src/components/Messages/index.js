@@ -1,4 +1,4 @@
-import {memo, useRef, useState} from "react";
+import React, {memo, useRef, useState} from "react";
 import {useMessagesData} from "../../contexts/messagesContext";
 import MessageComp from "../MessageComp";
 import {useEffect} from "react";
@@ -58,8 +58,8 @@ const Messages = ({configs}) => {
                     id="messageFilter"
                 >
                     {
-                        FILTER_OPTIONS.map(item => (
-                            <option value={item}>{item}</option>
+                        FILTER_OPTIONS.map((item,index) => (
+                            <option key={index} value={item}>{item}</option>
                         ))
                     }
                 </select>
