@@ -1,8 +1,17 @@
 const MessageComp = ({item: {name, date, text, textColor, nameColor}}) => (
     <>
-        <p style={{color: nameColor}}>{name}</p>
-        <p>{date}</p>
-        <p style={{color: textColor}}>{text}</p>
+
+
+            <div className="card-header">
+                {date}
+            </div>
+            <div className="card-body">
+                <h5 className="card-title" style={{color: nameColor}}>{name}</h5>
+                <p className="card-text" style={{color: textColor}}>
+                    {text}
+                </p>
+            </div>
+
     </>
 )
 

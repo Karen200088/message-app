@@ -13,7 +13,7 @@ const MessagesProvider = ({children}) => {
     },[])
 
     return (
-        <MessagesContext.Provider value={{messages}}>
+        <MessagesContext.Provider value={{messages,setMessages}}>
             {children}
         </MessagesContext.Provider>
     )

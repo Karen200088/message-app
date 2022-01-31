@@ -4,75 +4,83 @@
       "id": "1",
       "name": "Alex",
       "date": "17/05/2021",
-      "text": "Hello Hayk",
-      "textColor": "black",
-      "nameColor": "black"
+      "text": "Hello Hayk , how are you.",
+      "textColor": "white",
+      "nameColor": "white",
+      "isUserComment": "false"
     },
     {
       "id": "2",
       "name": "Hayk",
       "date": "21/03/2020",
       "text": "I`ll be late today",
-      "textColor": "black",
-      "nameColor": "black"
+      "textColor": "white",
+      "nameColor": "white",
+      "isUserComment": "false"
     },
     {
       "id": "3",
-      "name": "Karen",
+      "name": "Arthur",
       "date": "13/09/2021",
       "text": "Hey man, when can you come to hang over? I`ll be free today",
-      "textColor": "black",
-      "nameColor": "black"
+      "textColor": "white",
+      "nameColor": "white",
+      "isUserComment": "false"
     },
     {
       "id": "4",
       "name": "Alex",
       "date": "13/09/2021",
       "text": "Hi, maybe I`ll be free after work today. I`ll call you",
-      "textColor": "black",
-      "nameColor": "black"
-
+      "textColor": "white",
+      "nameColor": "white",
+      "isUserComment": "false"
     },
     {
       "id": "5",
       "name": "Hayk",
       "date": "21/03/2020",
       "text": "Yesterday I did great job with my application, you can check it out on my page",
-      "textColor": "black",
-      "nameColor": "black"
+      "textColor": "white",
+      "nameColor": "white",
+      "isUserComment": "false"
     },
     {
       "id": "6",
-      "name": "Karen",
+      "name": "Sargis",
       "date": "1/01/2022",
       "text": "Merry Christmas and a happy New Year",
-      "textColor": "black",
-      "nameColor": "black"
+      "textColor": "white",
+      "nameColor": "white",
+      "isUserComment": "false"
     },
     {
       "id": "7",
       "name": "Alex",
       "date": "17/05/2021",
       "text": "My car is in service center now, I can`t visit you",
-      "textColor": "black",
-      "nameColor": "black"
-
+      "textColor": "white",
+      "nameColor": "white",
+      "isUserComment": "false"
     },
     {
       "id": "8",
       "name": "Hayk",
       "date": "21/03/2020",
       "text": "So, what is up with that job?",
-      "textColor": "black",
-      "nameColor": "black"
+      "textColor": "white",
+      "nameColor": "white",
+      "isUserComment": "false"
     },
     {
       "id": "9",
-      "name": "Karen",
+      "name": "Hovhannes",
       "date": "13/07/2021",
       "text": "Have you ever thought about living in another country?",
-      "textColor": "black",
-      "nameColor": "black"
+      "textColor": "white",
+      "nameColor": "white",
+      "isUserComment": "false"
+
     }
   ]
 }

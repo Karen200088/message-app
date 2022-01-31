@@ -7,10 +7,11 @@ import PopupWrapper from "./components/PopupWrapper";
 import PopupMessage from "./components/PopupMessage";
 import Login from "./components/Login";
 
+
 const App = () => {
     const [configs, setConfigs] = useState({})
-
     const navigate = useNavigate()
+
 
     const handleConfigs = useCallback((configsObj) => {
         setConfigs(configsObj)
@@ -21,6 +22,7 @@ const App = () => {
             navigate('..')
         }, 300)
     }
+
 
     return (
         <>

@@ -10,7 +10,6 @@ const Login = () => {
     const [userIsAuthorizedState, setUserIsAuthorizedState] = useState(reloadStorageValue);
 
 
-
     useEffect(() => {
         fetch('/users.json')
             .then(res => res.json())
@@ -26,6 +25,8 @@ const Login = () => {
                 localStorage.setItem('isAuthorized', true);
                 localStorage.setItem('userName', allUsers[index].username );
                 setUserIsAuthorizedState(true)
+                window.location.reload()
+
             }
         })
     }
@@ -34,6 +35,8 @@ const Login = () => {
         localStorage.removeItem('isAuthorized');
         localStorage.removeItem('userName');
         setUserIsAuthorizedState(false);
+        window.location.reload()
+
     }
 
 

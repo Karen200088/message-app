@@ -1,5 +1,5 @@
-import {colors, colorTarget} from "../../helpers/constants";
-import {useEffect, useState} from "react";
+import { colors, colorTarget } from "../../helpers/constants";
+import React, {useEffect, useState} from "react";
 
 const Configs = ({handleConfigs}) => {
     const [color, setColor] = useState(colors[0])

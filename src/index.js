@@ -6,13 +6,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min';
 import './styles/style.css';
 import MessagesProvider from "./contexts/messagesContext";
+import UserProvider from "./contexts/userNameContext";
 
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-            <MessagesProvider>
-                <App/>
-            </MessagesProvider>
+            <UserProvider>
+                <MessagesProvider>
+                    <App/>
+                </MessagesProvider>
+            </UserProvider>
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')

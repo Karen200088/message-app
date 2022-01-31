@@ -9,6 +9,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+header {
+  border-bottom: 1px solid whitesmoke;
+}
 header .navbar-brand {
   color: aliceblue;
   font-size: 25px;
@@ -47,33 +50,59 @@ header .nav-item .active {
 }
 
 .message-item {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #000;
   border-radius: 10px;
-  margin: 20px auto 0;
-  width: 45%;
 }
-
-.message-item:last-child {
-  margin: 20px auto;
+.message-item .message-container {
+  color: whitesmoke;
 }
-
-.message-filter {
-  display: flex;
-  justify-content: space-around;
-  width: 80%;
-  margin: 20px auto;
+.message-item .btn {
+  border: 1px solid #212529;
+  float: right;
+  margin-right: 8px;
+  background: orange;
+  transition: 0.3s;
 }
-
-.message-input {
-  width: 300px;
+.message-item .btn:hover {
+  background: #c27e00;
+}
+.message-item .card-body {
+  opacity: 1;
+  transition: 0.3s;
+}
+.message-item .card-body:hover {
+  opacity: 0.5;
 }
 
 .message-container {
   text-decoration: none;
+}
+
+.message-control-tools {
+  color: orange;
+  font-size: 25px;
+}
+.message-control-tools p {
+  margin: 0;
+}
+.message-control-tools svg {
+  cursor: pointer;
+  float: right;
+  margin: 10px;
+  transition: 0.3s;
+}
+.message-control-tools svg:hover {
+  color: #c27e00;
+}
+.message-control-tools input:disabled {
+  display: none;
+  transition: 0.5s;
+}
+.message-control-tools input {
+  transition: 0.5s;
+}
+.message-control-tools input:focus {
+  outline: none;
+  background: orange;
 }
 
 /*# sourceMappingURL=style.css.map */
