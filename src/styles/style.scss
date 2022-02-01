@@ -14,6 +14,7 @@ code {
 
 header {
   border-bottom: 1px solid whitesmoke;
+
   .navbar-brand {
     color: aliceblue;
     font-size: 25px;
@@ -61,8 +62,11 @@ header {
 }
 
 .message-item {
-  border-radius: 10px;
-  .message-container{
+  .card {
+    border-radius: 8px;
+  }
+
+  .message-container {
     color: whitesmoke;
   }
 
@@ -72,7 +76,8 @@ header {
     margin-right: 8px;
     background: orange;
     transition: 0.3s;
-    &:hover{
+
+    &:hover {
       background: #c27e00;
     }
   }
@@ -94,28 +99,57 @@ header {
 .message-control-tools {
   color: orange;
   font-size: 25px;
+
   p {
     margin: 0;
   }
-  svg{
+
+  svg {
     cursor: pointer;
     float: right;
     margin: 10px;
     transition: 0.3s;
-    &:hover{
+
+    &:hover {
       color: #c27e00;
     }
   }
+
   input:disabled {
     display: none;
     transition: 0.5s;
   }
+
   input {
     transition: 0.5s;
-    &:focus{
+    display: block;
+
+    &:focus {
       outline: none;
       background: orange;
-
     }
   }
+}
+
+.view-message-popup-wrapper {
+  height: calc(100vh - 81px);
+  background: #494949;
+}
+
+.back-button {
+  height: 50px;
+  width: 50px;
+  padding-bottom: 5px;
+  font-size: 25px;
+  transition: 0.3s;
+  background: orange;
+  border-radius: 50%;
+  position: absolute;
+  &:hover {
+    background: #c27e00;
+  }
+  svg {
+    border-radius: 50%;
+  }
+  z-index: 25;
 }

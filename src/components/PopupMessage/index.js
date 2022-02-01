@@ -7,7 +7,14 @@ const PopupMessage = () => {
     const {messages} = useMessagesData()
 
     return (
-        <MessageComp item={messages[params.id - 1]} />
+
+
+            <div className="view-message-popup-wrapper ">
+                <div className="m-auto col-5 pt-5">
+                    <MessageComp item={messages[params.id - 1]}/>
+                </div>
+            </div>
+
     )
 
 }

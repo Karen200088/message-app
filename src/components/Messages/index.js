@@ -86,16 +86,26 @@ const Messages = ({configs}) => {
         filterMessages();
     }
 
-    const changeUserMessage = (changeUserMessageId) => {
-
+    const changeUserMessage = () => {
 
         setUserMessageInputDisabled(false)
 
-        filterMessages();
     }
 
     const liveChangeUserMessage = (changeUserMessageId) => {
-        changeUserMessageId = changeUserMessageId - 1
+        changeUserMessageId = +changeUserMessageId;
+        console.log(changeUserMessageId)
+        console.log(messages.length)
+        console.log(messages)
+
+        if (changeUserMessageId === messages.length) {
+            changeUserMessageId = +changeUserMessageId - 1
+        }else {
+            changeUserMessageId = +changeUserMessageId - 1
+        }
+
+        console.log(changeUserMessageId)
+
         messages[changeUserMessageId].text = userMessageChangeInput.current.value;
         filterMessages();
     }
@@ -163,7 +173,7 @@ const Messages = ({configs}) => {
 
 
             {
-                filteredMessages.map(message => (
+                filteredMessages.map((message) => (
 
                     <div key={message.id} className='message-item text-center col-5 m-auto pt-2 pb-3 mt-5'>
 
@@ -174,7 +184,7 @@ const Messages = ({configs}) => {
                             </NavLink>
 
                             {
-                                message.isUserComment === "false" ?
+                                message.isUserComment === "false" && userIsAuthorized === "true" ?
                                     <>
                                         <p>
                                             <button type="button" className="btn">Reply
@@ -205,7 +215,9 @@ const Messages = ({configs}) => {
                                             </p>
                                             <p className="user-message-change">
                                                 <BsFillPencilFill
-                                                    onClick={() => changeUserMessage(message.id, message.text)}/>
+                                                    onClick={() =>
+                                                        changeUserMessage(message.id)}/>
+
                                             </p>
                                         </div>
                                     </>
