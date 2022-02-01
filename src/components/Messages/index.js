@@ -16,7 +16,7 @@ const Messages = ({configs}) => {
 
     const inputRef = useRef(null)
     const commentInputRef = useRef(null)
-    const userMessageChangeInput = useRef(null)
+    const [userMessageChangeInput , setUserMessageChangeInput] = useState(null)
 
     const {messages} = useMessagesData()
     const {setMessages} = useMessagesData()
@@ -93,20 +93,16 @@ const Messages = ({configs}) => {
     }
 
     const liveChangeUserMessage = (changeUserMessageId) => {
-        changeUserMessageId = +changeUserMessageId;
-        console.log(changeUserMessageId)
-        console.log(messages.length)
-        console.log(messages)
-
-        if (changeUserMessageId === messages.length) {
-            changeUserMessageId = +changeUserMessageId - 1
-        }else {
-            changeUserMessageId = +changeUserMessageId - 1
-        }
-
-        console.log(changeUserMessageId)
-
+        changeUserMessageId = +changeUserMessageId - 1;
         messages[changeUserMessageId].text = userMessageChangeInput.current.value;
+        filterMessages();
+    }
+
+    const addReplyComment = (replyMessageId) => {
+        replyMessageId = replyMessageId - 1;
+        console.log(userMessageChangeInput)
+        messages[replyMessageId].replyComment = userMessageChangeInput;
+        setUserMessageChangeInput("")
         filterMessages();
     }
 
@@ -186,8 +182,20 @@ const Messages = ({configs}) => {
                             {
                                 message.isUserComment === "false" && userIsAuthorized === "true" ?
                                     <>
-                                        <p>
-                                            <button type="button" className="btn">Reply
+                                        <p className="pt-3">
+                                            {message.replyComment.length > 1 ?
+                                            <span
+                                                className="reply-message mb-2">
+
+                                                {userName}:
+                                                    <span> {message.replyComment}</span>
+
+                                            </span>
+                                                :""}
+                                            <input onChange={(e) => setUserMessageChangeInput(e.target.value)} placeholder="Reply message"
+                                                   className="form-control mt-3 m-auto reply-input" type="text"/>
+                                            <button type="button" className="btn"
+                                                    onClick={() => addReplyComment(message.id)}>Reply
                                             </button>
                                         </p>
 

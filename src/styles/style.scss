@@ -153,3 +153,19 @@ header {
   }
   z-index: 25;
 }
+
+.reply-input {
+  background: orange;
+  width: 60%;
+  border: 1px solid #212529;
+  &::placeholder {
+    color: #212529;
+  }
+  &:focus {
+    outline: none;
+    background: #e39200;
+    box-shadow: none;
+    border: 1px solid #212529;
+  }
+
+}

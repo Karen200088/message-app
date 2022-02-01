@@ -129,4 +129,19 @@ header .nav-item .active {
   border-radius: 50%;
 }
 
+.reply-input {
+  background: orange;
+  width: 60%;
+  border: 1px solid #212529;
+}
+.reply-input::placeholder {
+  color: #212529;
+}
+.reply-input:focus {
+  outline: none;
+  background: #e39200;
+  box-shadow: none;
+  border: 1px solid #212529;
+}
+
 /*# sourceMappingURL=style.css.map */
