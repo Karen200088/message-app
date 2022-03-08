@@ -1,10 +1,10 @@
-import {getUsersAction} from "../reducers/messagesReducer";
+import {getMessagesAction} from "../reducers/messagesReducer";
 
-export const fetchUsers = () => {
+export const fetchMessages = () => {
     return (dispatch) => {
-        fetch('/users.json')
+        fetch('/messages.json')
             .then(response => response.json())
-            .then(json => dispatch(getUsersAction(json)));
+            .then(json => dispatch(getMessagesAction(json.messages)));
     }
 
 }

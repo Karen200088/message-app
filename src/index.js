@@ -5,16 +5,17 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min';
 import './styles/style.css';
-import MessagesProvider from "./contexts/messagesContext";
 import UserProvider from "./contexts/userNameContext";
+import {Provider} from "react-redux";
+import {store} from "./redux/store";
 
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
             <UserProvider>
-                <MessagesProvider>
-                    <App/>
-                </MessagesProvider>
+                    <Provider store={store}>
+                        <App/>
+                    </Provider>
             </UserProvider>
         </BrowserRouter>
     </React.StrictMode>,

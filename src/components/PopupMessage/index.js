@@ -1,10 +1,20 @@
 import MessageComp from "../MessageComp";
 import {useParams} from "react-router-dom";
-import {useMessagesData} from "../../contexts/messagesContext";
+import {useDispatch, useSelector} from "react-redux";
+import React, {useEffect} from "react";
+import {fetchMessages} from "../../redux/messagesAsync/messagesFetch";
 
 const PopupMessage = () => {
     const params = useParams()
-    const {messages} = useMessagesData()
+
+    const dispatch = useDispatch();
+
+    const messages = useSelector(state => state.messagesFromDb);
+
+
+    useEffect(() => {
+        dispatch(fetchMessages());
+    }, []);
 
     return (
 

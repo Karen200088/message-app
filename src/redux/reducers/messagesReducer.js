@@ -1,22 +1,24 @@
 const initialState = {
-    messagesFromDb: []
+    messagesFromDb: [],
+    userMessages: [],
 }
 
-const ADD_USER = "ADD_USER";
-const REMOVE_USER = "REMOVE_USER";
-const GET_USER = "REMOVE_USER";
+const GET_MESSAGES_FROM_DB = "GET_MESSAGES_FROM_DB";
+const REPLY_MESSAGE = "REPLY_MESSAGE";
+const ADD_USER_MESSAGE = "ADD_USER_MESSAGE";
 
-
-export const usersReducer = (state = initialState, action) => {
+export const messagesReducer = (state = initialState, action) => {
 
     switch (action.type) {
-
-        case ADD_USER:
-            return { ...state , users: [...state.users , action.payload]}
-        // case REMOVE_USER:
-        //     return {name: (action.payload)}
-        case GET_USER:
-            return { ...state, users: state.users.concat(action.payload) }
+        case GET_MESSAGES_FROM_DB:
+            return {...state, messagesFromDb: action.payload}
+        case REPLY_MESSAGE:
+            const currentMessage = state.messagesFromDb.find((item) => item.id === action.payload.replyMessageId);
+            currentMessage.replyComment.push(action.payload.userMessageChangeInput)
+            return {...state}
+        case ADD_USER_MESSAGE:
+            const messages = [...state.userMessages, action.payload]
+            return {...state, userMessages: messages}
         default:
             return state;
 
@@ -24,6 +26,6 @@ export const usersReducer = (state = initialState, action) => {
 
 }
 
-export const addUserAction = (payload) => ({type: ADD_USER, payload});
-export const removeUserAction = (payload) => ({type: REMOVE_USER, payload});
-export const getUsersAction = (payload) => ({type: GET_USER, payload});
+export const getMessagesAction = (payload) => ({type: GET_MESSAGES_FROM_DB, payload});
+export const replyMessageAction = (payload) => ({type: REPLY_MESSAGE, payload});
+export const addUserMessageAction = (payload) => ({type: ADD_USER_MESSAGE, payload});

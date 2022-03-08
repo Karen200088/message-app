@@ -8,7 +8,7 @@
       "textColor": "white",
       "nameColor": "white",
       "isUserComment": "false",
-      "replyComment":""
+      "replyComment":[]
     },
     {
       "id": "2",
@@ -18,7 +18,7 @@
       "textColor": "white",
       "nameColor": "white",
       "isUserComment": "false",
-      "replyComment":""
+      "replyComment":[]
     },
     {
       "id": "3",
@@ -28,7 +28,7 @@
       "textColor": "white",
       "nameColor": "white",
       "isUserComment": "false",
-      "replyComment":""
+      "replyComment":[]
     },
     {
       "id": "4",
@@ -38,7 +38,7 @@
       "textColor": "white",
       "nameColor": "white",
       "isUserComment": "false",
-      "replyComment":""
+      "replyComment":[]
     },
     {
       "id": "5",
@@ -48,7 +48,7 @@
       "textColor": "white",
       "nameColor": "white",
       "isUserComment": "false",
-      "replyComment":""
+      "replyComment":[]
     },
     {
       "id": "6",
@@ -58,7 +58,7 @@
       "textColor": "white",
       "nameColor": "white",
       "isUserComment": "false",
-      "replyComment":""
+      "replyComment":[]
     },
     {
       "id": "7",
@@ -68,7 +68,7 @@
       "textColor": "white",
       "nameColor": "white",
       "isUserComment": "false",
-      "replyComment":""
+      "replyComment":[]
     },
     {
       "id": "8",
@@ -78,7 +78,7 @@
       "textColor": "white",
       "nameColor": "white",
       "isUserComment": "false",
-      "replyComment":""
+      "replyComment":[]
     },
     {
       "id": "9",
@@ -88,7 +88,7 @@
       "textColor": "white",
       "nameColor": "white",
       "isUserComment": "false",
-      "replyComment":""
+      "replyComment":[]
     }
   ]
 }

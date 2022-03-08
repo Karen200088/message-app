@@ -1,11 +1,12 @@
-import React, {memo, useRef, useState} from "react";
-import {useMessagesData} from "../../contexts/messagesContext";
+import React, {memo, useRef, useState, useEffect} from "react";
 import MessageComp from "../MessageComp";
-import {useEffect} from "react";
 import {FILTER_OPTIONS} from "../../helpers/constants";
 import {NavLink} from "react-router-dom";
 import {useUserData} from "../../contexts/userNameContext"
 import {BsFillTrashFill, BsFillPencilFill} from "react-icons/bs";
+import {useSelector, useDispatch} from "react-redux";
+import {fetchMessages} from "../../redux/messagesAsync/messagesFetch";
+import {addUserMessageAction, replyMessageAction} from "../../redux/reducers/messagesReducer";
 
 
 const Messages = ({configs}) => {
@@ -16,19 +17,32 @@ const Messages = ({configs}) => {
 
     const inputRef = useRef(null)
     const commentInputRef = useRef(null)
-    const [userMessageChangeInput , setUserMessageChangeInput] = useState(null)
+    const [userMessageChangeInput, setUserMessageChangeInput] = useState(null)
 
-    const {messages} = useMessagesData()
-    const {setMessages} = useMessagesData()
+
+    const dispatch = useDispatch();
+
+    const messagesFromDb = useSelector(state => state.messages.messagesFromDb);
+    const userMessages = useSelector(state => state.messages.userMessages);
+    let allMessages = [];
+
+    useEffect(() => {
+        dispatch(fetchMessages());
+    }, []);
+
 
     const [userName, userIsAuthorized] = useUserData();
+
+    useEffect(() => {
+        allMessages = [...messagesFromDb, ...userMessages]
+    }, [messagesFromDb, userMessages])
 
     useEffect(() => {
         filterMessages()
         return () => {
             clearTimeout(inputRef.current)
         }
-    }, [messages, configs, filterSelectValue, filterInputValue])
+    }, [messagesFromDb, userMessages, configs, filterSelectValue, filterInputValue])
 
     const handleSelectValue = e => {
         setFilterSelectValue(e.target.value)
@@ -42,7 +56,7 @@ const Messages = ({configs}) => {
         clearTimeout(inputRef.current)
         inputRef.current = setTimeout(() => {
 
-            const filteredData = messages
+            const filteredData = allMessages
                 .filter(item => item[filterSelectValue].includes(filterInputValue))
                 .map(item => {
                     item[configs.target] = configs.color
@@ -56,11 +70,10 @@ const Messages = ({configs}) => {
     const customMessageAdd = () => {
 
         const current = new Date();
-        const commentValue = commentInputRef.current.value
+        const commentValue = commentInputRef.current.value;
 
-        let exampleObj = {
-
-            "id": (messages.length + 1).toString(),
+        let newMessage = {
+            "id":  userMessages.length !== 0 ? (+userMessages[userMessages.length - 1].id + 1).toString() : "0",
             "name": userName,
             "date": `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`,
             "text": commentValue,
@@ -70,7 +83,7 @@ const Messages = ({configs}) => {
         }
 
         if (commentValue.length !== 0) {
-            setMessages([...messages, exampleObj]);
+            dispatch(addUserMessageAction(newMessage));
             commentInputRef.current.value = "";
         }
 
@@ -78,10 +91,10 @@ const Messages = ({configs}) => {
     }
 
     const deleteUserMessage = (deleteMessageId) => {
-        if (deleteMessageId <= messages.length) {
-            messages.splice(deleteMessageId - 1, 1);
+        if (deleteMessageId <= messagesFromDb.length) {
+            messagesFromDb.splice(deleteMessageId - 1, 1);
         } else {
-            messages.splice(deleteMessageId - 2, 1);
+            messagesFromDb.splice(deleteMessageId - 2, 1);
         }
         filterMessages();
     }
@@ -94,15 +107,13 @@ const Messages = ({configs}) => {
 
     const liveChangeUserMessage = (changeUserMessageId) => {
         changeUserMessageId = +changeUserMessageId - 1;
-        messages[changeUserMessageId].text = userMessageChangeInput.current.value;
+        messagesFromDb[changeUserMessageId].text = userMessageChangeInput.current.value;
         filterMessages();
     }
 
     const addReplyComment = (replyMessageId) => {
-        replyMessageId = replyMessageId - 1;
-        console.log(userMessageChangeInput)
-        messages[replyMessageId].replyComment = userMessageChangeInput;
-        setUserMessageChangeInput("")
+        dispatch(replyMessageAction({replyMessageId, userMessageChangeInput}));
+        setUserMessageChangeInput('');
         filterMessages();
     }
 
@@ -182,22 +193,25 @@ const Messages = ({configs}) => {
                             {
                                 message.isUserComment === "false" && userIsAuthorized === "true" ?
                                     <>
-                                        <p className="pt-3">
-                                            {message.replyComment.length > 1 ?
-                                            <span
-                                                className="reply-message mb-2">
+                                        <div className="pt-3 pb-4">
+                                            {message.replyComment.length > 0 ?
+                                                <div className="reply-message mb-2">
 
-                                                {userName}:
-                                                    <span> {message.replyComment}</span>
+                                                    {userName}:
+                                                    {message.replyComment && message.replyComment.map((rep, index) => {
+                                                            return <h6 key={index}> {rep}</h6>
+                                                        }
+                                                    )}
 
-                                            </span>
-                                                :""}
-                                            <input onChange={(e) => setUserMessageChangeInput(e.target.value)} placeholder="Reply message"
+                                                </div>
+                                                : ""}
+                                            <input onChange={(e) => setUserMessageChangeInput(e.target.value)}
+                                                   placeholder="Reply message"
                                                    className="form-control mt-3 m-auto reply-input" type="text"/>
                                             <button type="button" className="btn"
                                                     onClick={() => addReplyComment(message.id)}>Reply
                                             </button>
-                                        </p>
+                                        </div>
 
                                     </>
                                     : ""}
@@ -205,7 +219,6 @@ const Messages = ({configs}) => {
                                 message.isUserComment === "true" ?
                                     <>
                                         <div className="message-control-tools">
-
 
                                             <input
                                                 ref={userMessageChangeInput}

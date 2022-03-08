@@ -10,8 +10,7 @@ import Login from "./components/Login";
 
 const App = () => {
     const [configs, setConfigs] = useState({})
-    const navigate = useNavigate()
-
+    const navigate = useNavigate();
 
     const handleConfigs = useCallback((configsObj) => {
         setConfigs(configsObj)
